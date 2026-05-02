@@ -121,6 +121,28 @@ label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,111,255,0.35); }
 .btn-primary:disabled { opacity: 0.5; transform: none; }
 
+.btn-google {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 13px 24px;
+  background: #ffffff; color: #3c4043;
+  font-weight: 500; font-size: 0.9rem;
+  border: 1px solid #dadce0; border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.btn-google:hover {
+  background: #f8f9fa; border-color: #d2e3fc; box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+}
+
+.divider {
+  display: flex; align-items: center; text-align: center; margin: 24px 0 16px;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; border-bottom: 1px solid var(--border);
+}
+.divider span {
+  padding: 0 14px; color: var(--text-muted); font-size: 0.8rem; font-weight: 600;
+}
+
 /* ===== Navbar ===== */
 .navbar {
   display: flex; align-items: center; justify-content: space-between;
@@ -165,8 +187,22 @@ label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-
 
 /* ===== Dashboard ===== */
 .dashboard { padding: 36px; max-width: 1280px; margin: 0 auto; animation: fadeIn 0.4s ease; }
-.dashboard-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.dashboard-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
 .dashboard-header h2 { font-size: 1.5rem; font-weight: 700; }
+
+.metrics-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px; margin-bottom: 36px;
+}
+.metric-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: var(--transition);
+}
+.metric-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow); }
+.metric-value { font-size: 2.2rem; font-weight: 700; color: var(--text-primary); line-height: 1; }
+.metric-label { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 .new-board-btn {
   display: flex; align-items: center; gap: 8px;
   background: linear-gradient(135deg, #7C6FFF, #6a5ce0);

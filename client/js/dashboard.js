@@ -61,6 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const boards = await API.get('/boards');
       boardsGrid.innerHTML = '';
 
+      // Update metrics
+      const metricTotalBoards = document.getElementById('metricTotalBoards');
+      if (metricTotalBoards) {
+        metricTotalBoards.textContent = boards.length;
+      }
+
       if (boards.length === 0) {
         boardsGrid.innerHTML = `<div class="empty-state">
           <div class="empty-icon">📋</div>
