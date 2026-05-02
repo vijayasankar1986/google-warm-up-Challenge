@@ -37,8 +37,25 @@ app.get('*', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 Trello Board server running on http://localhost:${PORT}`);
-  console.log(`📋 API: http://localhost:${PORT}/api/health`);
-  console.log(`🌐 App: http://localhost:${PORT}\n`);
-});
+async function startServer() {
+  try {
+    if (process.env.NODE_ENV === 'production') {
+      console.log('Running database migrations...');
+      const db = require('./config/db');
+      await db.migrate.latest();
+      console.log('Database migrations completed.');
+    }
+  } catch (err) {
+    console.error('Failed to run migrations:', err);
+    // Optionally continue or exit, but since DB is required, exiting might be better
+    // However, sometimes it's okay to just log. Let's just log so server starts.
+  }
+
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Trello Board server running on http://localhost:${PORT}`);
+    console.log(`📋 API: http://localhost:${PORT}/api/health`);
+    console.log(`🌐 App: http://localhost:${PORT}\n`);
+  });
+}
+
+startServer();

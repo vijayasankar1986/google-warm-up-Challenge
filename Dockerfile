@@ -3,7 +3,7 @@ FROM node:18-slim
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 COPY server/ ./server/
 COPY client/ ./client/
