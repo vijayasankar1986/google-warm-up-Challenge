@@ -23,14 +23,16 @@
   </nav>
 
   <!-- Board Header -->
-  <div class="board-header">
+  <main>
+    <div class="board-header">
     <h2 id="boardTitle">Loading...</h2>
   </div>
 
   <!-- Lists -->
-  <div class="lists-wrapper" id="listsContainer">
-    <div class="empty-state"><p>Loading board...</p></div>
-  </div>
+    <div class="lists-wrapper" id="listsContainer" role="region" aria-label="Board Lists">
+      <div class="empty-state"><p>Loading board...</p></div>
+    </div>
+  </main>
 
   <script src="/js/api.js"></script>
   <script src="/js/board.js"></script>

@@ -39,15 +39,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2>Create Board</h2>
-        <button class="close-modal" id="closeModal">✕</button>
+        <button class="close-modal" id="closeModal" aria-label="Close modal">✕</button>
       </div>
       <form id="createBoardForm">
-        <label>Board Title</label>
+        <label for="boardTitle">Board Title</label>
         <input type="text" id="boardTitle" placeholder="e.g. Sprint Planning" required />
-        <label>Description</label>
+        <label for="boardDesc">Description</label>
         <textarea id="boardDesc" rows="2" placeholder="Optional description..."></textarea>
-        <label>Color</label>
-        <div class="color-picker" id="colorPicker"></div>
+        <label for="colorPicker">Color</label>
+        <div class="color-picker" id="colorPicker" role="radiogroup" aria-label="Board Color"></div>
         <button type="submit" class="btn-primary">Create Board</button>
       </form>
     </div>
