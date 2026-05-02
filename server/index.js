@@ -44,6 +44,10 @@ async function startServer() {
       const db = require('./config/db');
       await db.migrate.latest();
       console.log('Database migrations completed.');
+      
+      console.log('Running database seeds...');
+      await db.seed.run();
+      console.log('Database seeds completed.');
     }
   } catch (err) {
     console.error('Failed to run migrations:', err);
